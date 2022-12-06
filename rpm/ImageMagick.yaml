@@ -45,6 +45,7 @@ PkgConfigBR:
   - libxml-2.0
   # libzstd # only in 4.4
   - pango
+  - ddjvuapi
 Description: |
     ImageMagick®  is a software suite to create, edit, compose, or convert
     bitmap images.
@@ -81,6 +82,7 @@ ConfigOptions:
   - --without-magick_plus_plus
   - --with-modules
   - --without-perl
+  - --with-djvu
   - --without-dps
   - --without-fftw
   - --without-flif

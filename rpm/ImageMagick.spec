@@ -34,6 +34,7 @@ BuildRequires:  pkgconfig(libpng)
 BuildRequires:  pkgconfig(libtiff-4)
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(pango)
+BuildRequires:  pkgconfig(ddjvuapi)
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  gcc
@@ -97,6 +98,7 @@ Development files for %{name}.
     --without-magick_plus_plus \
     --with-modules \
     --without-perl \
+    --with-djvu \
     --without-dps \
     --without-fftw \
     --without-flif \
