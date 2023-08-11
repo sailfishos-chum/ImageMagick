@@ -99,7 +99,7 @@ Requires:   %{name} = %{version}-%{release}
     --disable-docs \
     --disable-deprecated \
     --without-frozenpaths \
-    --with-magick-plus-plus \
+    --without-magick-plus-plus \
     --with-modules \
     --with-perl \
     --with-djvu \
