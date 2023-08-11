@@ -33,6 +33,8 @@ BuildRequires:  pkgconfig(liblzma)
 BuildRequires:  pkgconfig(libpng)
 BuildRequires:  pkgconfig(libtiff-4)
 BuildRequires:  pkgconfig(libxml-2.0)
+BuildRequires:  pkgconfig(fontconfig)
+BuildRequires:  pkgconfig(freetype2)
 BuildRequires:  pkgconfig(pango)
 BuildRequires:  pkgconfig(ddjvuapi)
 BuildRequires:  autoconf
@@ -41,8 +43,10 @@ BuildRequires:  gcc
 BuildRequires:  bzip2-devel
 BuildRequires:  harfbuzz-devel
 BuildRequires:  libjpeg-turbo-devel
+BuildRequires:  librsvg-devel
 BuildRequires:  libtool-ltdl-devel
 BuildRequires:  libwebp-devel
+BuildRequires:  perl-devel
 
 %description
 ImageMagick®  is a software suite to create, edit, compose, or convert
@@ -95,9 +99,9 @@ Development files for %{name}.
     --disable-docs \
     --disable-deprecated \
     --without-frozenpaths \
-    --without-magick_plus_plus \
+    --with-magick-plus-plus \
     --with-modules \
-    --without-perl \
+    --with-perl \
     --with-djvu \
     --without-dps \
     --without-fftw \
@@ -111,6 +115,7 @@ Development files for %{name}.
     --without-openexr \
     --without-openjp2 \
     --without-raw \
+    --with-rsvg \
     --without-x \
     --with-zstd \
     CFLAGS="$RPM_OPT_FLAGS -fPIC -pie" \

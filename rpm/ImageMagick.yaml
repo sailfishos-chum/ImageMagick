@@ -10,42 +10,6 @@ URL:            https://imagemagick.org/
 Sources:
   # "https://imagemagick.org/download/ImageMagick-%{mfr_version}-%{mfr_revision}.tar.xz"
   - "%{name}-%{version}.tar.xz"
-Macros:
-  #- 'debug_build;0'
-  - 'mfr_revision;15'
-  - 'maj;7'
-  - 'mfr_version;%{maj}.1.1'
-  - 'quantum_depth;16'
-  - 'clibver;10'
-  - 'libspec;-%{maj}_Q%{quantum_depth}HDRI'
-  - 'source_version;%{mfr_version}-%{mfr_revision}'
-  #
-  # Hack: spectacle deletes macros, this works arount this:
-  # libzstd is only in 4.4:
-  - |
-    this_is_a_hack; see_yaml_for_details
-    %if 0%{?sailfishos_version} >= 40400
-    BuildRequires:  pkgconfig(libzstd)
-    %endif
-#Requires:
-#  - libfoo
-PkgBR:
-  - autoconf
-  - automake
-  - gcc
-  - bzip2-devel
-  - harfbuzz-devel
-  - libjpeg-turbo-devel
-  - libtool-ltdl-devel
-  - libwebp-devel
-PkgConfigBR:
-  - liblzma
-  - libpng
-  - libtiff-4
-  - libxml-2.0
-  # libzstd # only in 4.4
-  - pango
-  - ddjvuapi
 Description: |
     ImageMagick®  is a software suite to create, edit, compose, or convert
     bitmap images.
@@ -72,6 +36,47 @@ Description: |
       Help: https://imagemagick.org/script/command-line-tools.php
     %endif
 
+
+Macros:
+  #- 'debug_build;0'
+  - 'mfr_revision;15'
+  - 'maj;7'
+  - 'mfr_version;%{maj}.1.1'
+  - 'quantum_depth;16'
+  - 'clibver;10'
+  - 'libspec;-%{maj}_Q%{quantum_depth}HDRI'
+  - 'source_version;%{mfr_version}-%{mfr_revision}'
+  #
+  # Hack: spectacle deletes macros, this works arount this:
+  # libzstd is only in 4.4:
+  - |
+    this_is_a_hack; see_yaml_for_details
+    %if 0%{?sailfishos_version} >= 40400
+    BuildRequires:  pkgconfig(libzstd)
+    %endif
+#Requires:
+#  - libfoo
+PkgBR:
+  - autoconf
+  - automake
+  - gcc
+  - bzip2-devel
+  - harfbuzz-devel
+  - libjpeg-turbo-devel
+  - librsvg-devel
+  - libtool-ltdl-devel
+  - libwebp-devel
+  - perl-devel
+PkgConfigBR:
+  - liblzma
+  - libpng
+  - libtiff-4
+  - libxml-2.0
+  # libzstd # only in 4.4
+  - fontconfig
+  - freetype2
+  - pango
+  - ddjvuapi
 ConfigOptions:
   # --quiet
   - --enable-silent-rules
@@ -79,9 +84,10 @@ ConfigOptions:
   - --disable-docs
   - --disable-deprecated
   - --without-frozenpaths
-  - --without-magick_plus_plus
+  - --with-magick-plus-plus
   - --with-modules
-  - --without-perl
+  # --without-perl
+  - --with-perl
   - --with-djvu
   - --without-dps
   - --without-fftw
@@ -96,6 +102,7 @@ ConfigOptions:
   - --without-openjp2
   # --without-pango
   - --without-raw
+  - --with-rsvg
   - --without-x
   # --without-zstd
   - --with-zstd
