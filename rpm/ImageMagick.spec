@@ -81,7 +81,7 @@ Group:      Development/Libraries
 Requires:   %{name} = %{version}-%{release}
 
 %description devel
-Development files for %{name}.
+%{summary}.
 
 %prep
 %setup -q -n %{name}-%{version}/upstream
@@ -103,6 +103,7 @@ Development files for %{name}.
     --with-modules \
     --with-perl \
     --with-djvu \
+    --with-rsvg \
     --without-dps \
     --without-fftw \
     --without-flif \
@@ -115,7 +116,6 @@ Development files for %{name}.
     --without-openexr \
     --without-openjp2 \
     --without-raw \
-    --with-rsvg \
     --without-x \
     --with-zstd \
     CFLAGS="$RPM_OPT_FLAGS -fPIC -pie" \
@@ -145,7 +145,6 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-# >> files
 %license LICENSE
 %dir %{_sysconfdir}/ImageMagick-%{maj}
 %config %{_sysconfdir}/ImageMagick-%{maj}/colors.xml
@@ -169,12 +168,11 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %{_libdir}/libMagickWand*.so.%{clibver}*
 %{_libdir}/ImageMagick*/config*
 %{_libdir}/ImageMagick*/modules*
+# >> files
 # << files
 
 %files devel
 %defattr(-,root,root,-)
-# >> files devel
-#doc ChangeLog.md
 %{_libdir}/libMagickCore*.so
 %{_libdir}/libMagickWand*.so
 %{_libdir}/libMagickCore*.la
@@ -187,4 +185,5 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %{_libdir}/pkgconfig/MagickCore*.pc
 %{_libdir}/pkgconfig/ImageMagick*.pc
 %{_libdir}/pkgconfig/MagickWand*.pc
+# >> files devel
 # << files devel

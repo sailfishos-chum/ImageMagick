@@ -88,7 +88,9 @@ ConfigOptions:
   - --with-modules
   # --without-perl
   - --with-perl
+  # --with-gvc # graphviz
   - --with-djvu
+  - --with-rsvg
   - --without-dps
   - --without-fftw
   - --without-flif
@@ -102,7 +104,6 @@ ConfigOptions:
   - --without-openjp2
   # --without-pango
   - --without-raw
-  - --with-rsvg
   - --without-x
   # --without-zstd
   - --with-zstd
@@ -133,5 +134,46 @@ ConfigOptions:
 
 Builder: "none"
 SetupOptions: '-q -n %{name}-%{version}/upstream'
-AutoSubPackages:
-  - devel
+Files:
+  - '%license LICENSE'
+  - '%dir %{_sysconfdir}/ImageMagick-%{maj}'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/colors.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/delegates.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/log.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/mime.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/policy.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/quantization-table.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/thresholds.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/type-apple.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/type-dejavu.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/type-ghostscript.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/type-urw-base35.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/type-windows.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/type.xml'
+  - '%{_datadir}/ImageMagick-%{maj}/francais.xml'
+  - '%{_datadir}/ImageMagick-%{maj}/english.xml'
+  - '%{_datadir}/ImageMagick-%{maj}/locale.xml'
+  - '%{_bindir}/[^MW]*'
+  - '%{_libdir}/libMagickCore*.so.%{clibver}*'
+  - '%{_libdir}/libMagickWand*.so.%{clibver}*'
+  - '%{_libdir}/ImageMagick*/config*'
+  - '%{_libdir}/ImageMagick*/modules*'
+
+
+SubPackages:
+    - Name:  devel
+      Summary:    Development files for %{name}
+      Group:      Development/Libraries
+      Files:
+        - '%{_libdir}/libMagickCore*.so'
+        - '%{_libdir}/libMagickWand*.so'
+        - '%{_libdir}/libMagickCore*.la'
+        - '%{_libdir}/libMagickWand*.la'
+        - '%dir %{_includedir}/ImageMagick*'
+        - '%{_includedir}/ImageMagick*/MagickCore'
+        - '%{_includedir}/ImageMagick*/MagickWand'
+        - '%{_bindir}/MagickCore-config'
+        - '%{_bindir}/MagickWand-config'
+        - '%{_libdir}/pkgconfig/MagickCore*.pc'
+        - '%{_libdir}/pkgconfig/ImageMagick*.pc'
+        - '%{_libdir}/pkgconfig/MagickWand*.pc'
