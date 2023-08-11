@@ -54,18 +54,18 @@ images, adjust image colors, apply various special effects, or draw text,
 lines, polygons, ellipses and Bézier curves.
 
 %if "%{?vendor}" == "chum"
-PackageName: ImageMagick
-PackagerName: nephros
+Title: ImageMagick
+PackagedBy: nephros
 Type: console-application
 Categories:
   - Graphics
   - Utility
   - Library
-Icon: https://github.com/nephros/harbour-imagemagick/raw/master/files/icon-imagemagick_sfos_256.png
+PackageIcon: https://github.com/nephros/harbour-imagemagick/raw/master/files/icon-imagemagick_sfos_256.png
 Custom:
   Repo:   https://github.com/ImageMagick/ImageMagick
   PackagingRepo: https://github.com/sailfishos-chum/ImageMagick
-Url:
+Links:
   Homepage: https://imagemagick.org/
   Help: https://imagemagick.org/script/command-line-tools.php
 %endif
