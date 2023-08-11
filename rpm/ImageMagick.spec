@@ -21,7 +21,7 @@ BuildRequires:  pkgconfig(libzstd)
 
 Summary:    Viewer and Converter for Images
 Version:    7.1.1.15
-Release:    1.0
+Release:    1.1
 Group:      Applications/Multimedia
 License:    ImageMagick
 URL:        https://imagemagick.org/
@@ -83,6 +83,14 @@ Requires:   %{name} = %{version}-%{release}
 %description devel
 %{summary}.
 
+%package -n PerlMagick
+Summary:    Perl module of %{name}
+Group:      Development/Libraries
+Requires:   %{name} = %{version}-%{release}
+
+%description -n PerlMagick
+%{summary}.
+
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
@@ -102,6 +110,7 @@ Requires:   %{name} = %{version}-%{release}
     --without-magick-plus-plus \
     --with-modules \
     --with-perl \
+    --with-perl-options="PREFIX=%{_prefix}" \
     --with-djvu \
     --with-rsvg \
     --without-dps \
@@ -137,6 +146,7 @@ make install DESTDIR=$RPM_BUILD_ROOT
 # << install pre
 
 # >> install post
+rm -rf %{buildroot}%{_mandir}
 # << install post
 
 %post -p /sbin/ldconfig
@@ -187,3 +197,18 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %{_libdir}/pkgconfig/MagickWand*.pc
 # >> files devel
 # << files devel
+
+%files -n PerlMagick
+%defattr(-,root,root,-)
+%{_libdir}/perl5/perllocal.pod
+%{_libdir}/perl5/Image/Magick.pm
+%{_libdir}/perl5/Image/Magick/Q16HDRI.pm
+%{_libdir}/perl5/auto/Image/Magick/.packlist
+%{_libdir}/perl5/auto/Image/Magick/Magick.bs
+%{_libdir}/perl5/auto/Image/Magick/Magick.so
+%{_libdir}/perl5/auto/Image/Magick/Q16HDRI/Q16HDRI.bs
+%{_libdir}/perl5/auto/Image/Magick/Q16HDRI/Q16HDRI.so
+%{_libdir}/perl5/auto/Image/Magick/Q16HDRI/autosplit.ix
+%{_libdir}/perl5/auto/Image/Magick/autosplit.ix
+# >> files PerlMagick
+# << files PerlMagick

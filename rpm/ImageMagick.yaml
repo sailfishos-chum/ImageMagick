@@ -2,7 +2,7 @@ Name:           ImageMagick
 ### DO NOT FORGET TO BUMP mfr_revision below !!!
 ### Also, the builds script needs this to not be a macro
 Version:        7.1.1.15
-Release:        1.0
+Release:        1.1
 Summary:        Viewer and Converter for Images
 Group:          Applications/Multimedia
 License:        ImageMagick
@@ -84,10 +84,12 @@ ConfigOptions:
   - --disable-docs
   - --disable-deprecated
   - --without-frozenpaths
-  - --without-magick-plus-plus
+  - --without-magick-plus-plus # gives linking errors...
   - --with-modules
   # --without-perl
   - --with-perl
+  # --with-perl-options="PREFIX=%{_prefix} LIB=%{_lib}"
+  - --with-perl-options="PREFIX=%{_prefix}"
   # --with-gvc # graphviz
   - --with-djvu
   - --with-rsvg
@@ -177,3 +179,19 @@ SubPackages:
         - '%{_libdir}/pkgconfig/MagickCore*.pc'
         - '%{_libdir}/pkgconfig/ImageMagick*.pc'
         - '%{_libdir}/pkgconfig/MagickWand*.pc'
+
+    - Name:  PerlMagick
+      AsWholeName: true
+      Summary:    Perl module of %{name}
+      Group:      Development/Libraries
+      Files:
+        - '%{_libdir}/perl5/perllocal.pod'
+        - '%{_libdir}/perl5/Image/Magick.pm'
+        - '%{_libdir}/perl5/Image/Magick/Q16HDRI.pm'
+        - '%{_libdir}/perl5/auto/Image/Magick/.packlist'
+        - '%{_libdir}/perl5/auto/Image/Magick/Magick.bs'
+        - '%{_libdir}/perl5/auto/Image/Magick/Magick.so'
+        - '%{_libdir}/perl5/auto/Image/Magick/Q16HDRI/Q16HDRI.bs'
+        - '%{_libdir}/perl5/auto/Image/Magick/Q16HDRI/Q16HDRI.so'
+        - '%{_libdir}/perl5/auto/Image/Magick/Q16HDRI/autosplit.ix'
+        - '%{_libdir}/perl5/auto/Image/Magick/autosplit.ix'

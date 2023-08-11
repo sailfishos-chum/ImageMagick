@@ -1,36 +1,43 @@
-* Fri Jul 28 2023 Nephros <sailfish@nephros.org> - 7.1.1.14-1.0)
+* Sat Aug 12 2023 Nephros <sailfish@nephros.org> - 7.1.1.15-1.1
+- Package PerlMagick
+- support more things
+
+* Sat Aug 12 2023 Nephros <sailfish@nephros.org> - 7.1.1.15-1.0
 - version bump
 
-* Wed Jun 21 2023 Nephros <sailfish@nephros.org> - 7.1.1.9-1.0)
+* Fri Jul 28 2023 Nephros <sailfish@nephros.org> - 7.1.1.14-1.0
 - version bump
 
-* Thu Apr 13 2023 Nephros <sailfish@nephros.org> - 7.1.1.6-1.0)
+* Wed Jun 21 2023 Nephros <sailfish@nephros.org> - 7.1.1.9-1.0
 - version bump
 
-* Fri Mar 24 2023 Nephros <sailfish@nephros.org> - 7.1.1.4-1.0)
+* Thu Apr 13 2023 Nephros <sailfish@nephros.org> - 7.1.1.6-1.0
 - version bump
 
-* Wed Feb 15 2023 Nephros <sailfish@nephros.org> - 7.1.0.62-1.0)
+* Fri Mar 24 2023 Nephros <sailfish@nephros.org> - 7.1.1.4-1.0
 - version bump
 
-* Mon Feb  6 2023 Nephros <sailfish@nephros.org> - 7.1.0.61-1.1)
+* Wed Feb 15 2023 Nephros <sailfish@nephros.org> - 7.1.0.62-1.0
+- version bump
+
+* Mon Feb  6 2023 Nephros <sailfish@nephros.org> - 7.1.0.61-1.1
 - version bump
 - (re-)add djvu support
 
-* Mon Feb  6 2023 Nephros <sailfish@nephros.org> - 7.1.0.61-1.0)
+* Mon Feb  6 2023 Nephros <sailfish@nephros.org> - 7.1.0.61-1.0
 - version bump
 
-* Tue Dec  6 2022 Nephros <sailfish@nephros.org> - 7.1.0.53-1.0)
+* Tue Dec  6 2022 Nephros <sailfish@nephros.org> - 7.1.0.53-1.0
 - version bump
 
-* Tue Dec  6 2022 Nephros <sailfish@nephros.org> - 7.1.0.52-1.1)
+* Tue Dec  6 2022 Nephros <sailfish@nephros.org> - 7.1.0.52-1.1
 - move source repo again, to the chum repo
 
-* Wed Nov  9 2022 Nephros <sailfish@nephros.org> - 7.1.0.52-1.0)
+* Wed Nov  9 2022 Nephros <sailfish@nephros.org> - 7.1.0.52-1.0
 - version bump
-- move source repo from gitlab to github (old repo is broken)
+- move source repo from gitlab to github (old repo is broken
 
-* Sun Oct 30 2022 Nephros <sailfish@nephros.org> - 7.1.0.51-1.0)
+* Sun Oct 30 2022 Nephros <sailfish@nephros.org> - 7.1.0.51-1.0
 - version bump
 
 * Mon Jul 18 2022 Nephros <sailfish@nephros.org> - 7.1.0.43-1.0
