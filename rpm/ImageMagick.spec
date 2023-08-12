@@ -158,6 +158,7 @@ Requires:   %{name} = %{version}-%{release}
 %install
 rm -rf %{buildroot}
 # >> install pre
+# don't use install macros, we need the .la files
 make install DESTDIR=$RPM_BUILD_ROOT
 # << install pre
 

@@ -184,6 +184,7 @@ SubPackages:
       Files:
         - '%{_libdir}/libMagickCore*.so'
         - '%{_libdir}/libMagickWand*.so'
+        # don't remove these!
         - '%{_libdir}/libMagickCore*.la'
         - '%{_libdir}/libMagickWand*.la'
         - '%dir %{_includedir}/ImageMagick*'
