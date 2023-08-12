@@ -158,7 +158,7 @@ Requires:   %{name} = %{version}-%{release}
 %install
 rm -rf %{buildroot}
 # >> install pre
-make install DESTDIR=$RPM_BUILD_ROOT
+%make_install DESTDIR=$RPM_BUILD_ROOT
 # << install pre
 
 # >> install post
