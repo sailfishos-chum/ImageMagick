@@ -54,6 +54,20 @@ Macros:
     %if 0%{?sailfishos_version} >= 40400
     BuildRequires:  pkgconfig(libzstd)
     %endif
+    %ifarch %{arm} %{arm64} aarch64
+    %ifarch %{arm64} aarch64
+    %define tune_arch armv8-a
+    %else
+    %define tune_arch armv7-a
+    %endif
+    %else
+    %ifarch %{ix86}
+    # J Tablet -> Intel Atom Z3735F -> silvermont
+    %define tune_arch silvermont
+    %else
+    %define tune_arch no
+    %endif
+    %endif
 #Requires:
 #  - libfoo
 PkgBR:
@@ -80,6 +94,10 @@ PkgConfigBR:
   - pango
   - ddjvuapi
 ConfigOptions:
+  - CFLAGS="$RPM_OPT_FLAGS -fPIC -pie"
+  - CXXFLAGS="$RPM_OPT_FLAGS -fPIC -pie"
+  # don't tune for the build host, use a specific arch
+  - --with-gcc-arch=%{tune_arch}
   # --quiet
   - --enable-silent-rules
   - --enable-shared
@@ -97,7 +115,6 @@ ConfigOptions:
   - --without-fftw
   - --without-flif
   - --without-fpx
-  # --without-gcc-arch
   - --without-heic
   - --without-jbig
   - --without-lcms
@@ -109,8 +126,6 @@ ConfigOptions:
   - --without-x
   # --without-zstd
   - --with-zstd
-  - CFLAGS="$RPM_OPT_FLAGS -fPIC -pie"
-  - CXXFLAGS="$RPM_OPT_FLAGS -fPIC -pie"
 
   # from: https://fedoraproject.org/wiki/Changes/Harden_All_Packages
   #

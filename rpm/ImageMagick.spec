@@ -18,6 +18,20 @@ Name:       ImageMagick
 %if 0%{?sailfishos_version} >= 40400
 BuildRequires:  pkgconfig(libzstd)
 %endif
+%ifarch %{arm} %{arm64} aarch64
+%ifarch %{arm64} aarch64
+%define tune_arch armv8-a
+%else
+%define tune_arch armv7-a
+%endif
+%else
+%ifarch %{ix86}
+# J Tablet -> Intel Atom Z3735F -> silvermont
+%define tune_arch silvermont
+%else
+%define tune_arch no
+%endif
+%endif
 
 Summary:    Viewer and Converter for Images
 Version:    7.1.1.15
@@ -104,6 +118,9 @@ Requires:   %{name} = %{version}-%{release}
 # << build pre
 
 %configure --disable-static \
+    CFLAGS="$RPM_OPT_FLAGS -fPIC -pie" \
+    CXXFLAGS="$RPM_OPT_FLAGS -fPIC -pie" \
+    --with-gcc-arch=%{tune_arch} \
     --enable-silent-rules \
     --enable-shared \
     --disable-docs \
@@ -127,9 +144,7 @@ Requires:   %{name} = %{version}-%{release}
     --without-openjp2 \
     --without-raw \
     --without-x \
-    --with-zstd \
-    CFLAGS="$RPM_OPT_FLAGS -fPIC -pie" \
-    CXXFLAGS="$RPM_OPT_FLAGS -fPIC -pie"
+    --with-zstd
 
 
 # >> build post
