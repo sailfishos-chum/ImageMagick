@@ -29,12 +29,14 @@ Source0:    %{name}-%{version}.tar.xz
 Source100:  ImageMagick.yaml
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
+BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(liblzma)
 BuildRequires:  pkgconfig(libpng)
 BuildRequires:  pkgconfig(libtiff-4)
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(fontconfig)
 BuildRequires:  pkgconfig(freetype2)
+BuildRequires:  pkgconfig(minizip)
 BuildRequires:  pkgconfig(pango)
 BuildRequires:  pkgconfig(ddjvuapi)
 BuildRequires:  autoconf
@@ -117,7 +119,6 @@ Requires:   %{name} = %{version}-%{release}
     --without-fftw \
     --without-flif \
     --without-fpx \
-    --without-gcc-arch \
     --without-heic \
     --without-jbig \
     --without-lcms \

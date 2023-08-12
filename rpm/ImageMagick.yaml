@@ -68,6 +68,7 @@ PkgBR:
   - libwebp-devel
   - perl-devel
 PkgConfigBR:
+  - libcurl
   - liblzma
   - libpng
   - libtiff-4
@@ -75,6 +76,7 @@ PkgConfigBR:
   # libzstd # only in 4.4
   - fontconfig
   - freetype2
+  - minizip
   - pango
   - ddjvuapi
 ConfigOptions:
@@ -86,9 +88,7 @@ ConfigOptions:
   - --without-frozenpaths
   - --without-magick-plus-plus # gives linking errors...
   - --with-modules
-  # --without-perl
   - --with-perl
-  # --with-perl-options="PREFIX=%{_prefix} LIB=%{_lib}"
   - --with-perl-options="PREFIX=%{_prefix}"
   # --with-gvc # graphviz
   - --with-djvu
@@ -97,7 +97,7 @@ ConfigOptions:
   - --without-fftw
   - --without-flif
   - --without-fpx
-  - --without-gcc-arch
+  # --without-gcc-arch
   - --without-heic
   - --without-jbig
   - --without-lcms
