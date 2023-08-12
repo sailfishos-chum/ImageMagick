@@ -201,8 +201,6 @@ rm -rf %{buildroot}%{_mandir}
 %defattr(-,root,root,-)
 %{_libdir}/libMagickCore*.so
 %{_libdir}/libMagickWand*.so
-%{_libdir}/libMagickCore*.la
-%{_libdir}/libMagickWand*.la
 %dir %{_includedir}/ImageMagick*
 %{_includedir}/ImageMagick*/MagickCore
 %{_includedir}/ImageMagick*/MagickWand
