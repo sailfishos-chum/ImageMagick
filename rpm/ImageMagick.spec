@@ -20,9 +20,18 @@ BuildRequires:  pkgconfig(libzstd)
 %endif
 %ifarch %{arm} %{arm64} aarch64
 %ifarch %{arm64} aarch64
-%define tune_arch armv8-a
+#%%define tune_arch armv8-a
+#                   ^^^ not a valid option
+%define tune_arch cortex-a75.cortex-a55
+#                 ^^^ big.LITTLE arch. Chosen after the Snapdragon690/Kryo560 from Xperia 10III.
+#                 Actually should be "cortex-a77.cortex-a55" but GCC 8.3 does not have this.
 %else
-%define tune_arch armv7-a
+#%%define tune_arch armv7-a
+#                   ^^^ not a valid option
+#%%define tune_arch generic-armv7-a
+#                   ^^^ a valid option
+%define tune_arch cortex-a72.cortex-a53
+#                   ^^^ big.LITTLE arch. Chosen after the Snapdragon650 which was in the XperiaX
 %endif
 %else
 %ifarch %{ix86}
@@ -35,7 +44,7 @@ BuildRequires:  pkgconfig(libzstd)
 
 Summary:    Viewer and Converter for Images
 Version:    7.1.1.17
-Release:    1.1
+Release:    1.2
 Group:      Applications/Multimedia
 License:    ImageMagick
 URL:        https://imagemagick.org/
