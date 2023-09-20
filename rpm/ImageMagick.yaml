@@ -74,6 +74,7 @@ PkgBR:
   - autoconf
   - automake
   - gcc
+  - curl
   - bzip2-devel
   - harfbuzz-devel
   - libjpeg-turbo-devel

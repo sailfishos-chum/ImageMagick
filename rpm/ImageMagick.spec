@@ -56,6 +56,7 @@ BuildRequires:  pkgconfig(ddjvuapi)
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  gcc
+BuildRequires:  curl
 BuildRequires:  bzip2-devel
 BuildRequires:  harfbuzz-devel
 BuildRequires:  libjpeg-turbo-devel
