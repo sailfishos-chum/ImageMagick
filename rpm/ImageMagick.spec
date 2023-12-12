@@ -44,7 +44,7 @@ BuildRequires:  pkgconfig(libzstd)
 
 Summary:    Viewer and Converter for Images
 Version:    7.1.1.23
-Release:    1.1
+Release:    1.2
 Group:      Applications/Multimedia
 License:    ImageMagick
 URL:        https://imagemagick.org/
@@ -175,6 +175,11 @@ make install DESTDIR=$RPM_BUILD_ROOT
 # >> install post
 rm -rf %{buildroot}%{_mandir}
 # << install post
+
+%check
+# >> check
+make check
+# << check
 
 %post -p /sbin/ldconfig
 
