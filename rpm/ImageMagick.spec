@@ -53,6 +53,7 @@ Source100:  ImageMagick.yaml
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(libcurl)
+BuildRequires:  pkgconfig(libgvc)
 BuildRequires:  pkgconfig(liblzma)
 BuildRequires:  pkgconfig(libpng)
 BuildRequires:  pkgconfig(libtiff-4)
@@ -140,6 +141,7 @@ Requires:   %{name} = %{version}-%{release}
     --with-modules \
     --with-perl \
     --with-perl-options="PREFIX=%{_prefix}" \
+    --with-gvc \
     --with-djvu \
     --with-rsvg \
     --without-dps \

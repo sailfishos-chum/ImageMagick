@@ -93,6 +93,7 @@ PkgBR:
   - perl-devel
 PkgConfigBR:
   - libcurl
+  - libgvc
   - liblzma
   - libpng
   - libtiff-4
@@ -118,7 +119,7 @@ ConfigOptions:
   - --with-modules
   - --with-perl
   - --with-perl-options="PREFIX=%{_prefix}"
-  # --with-gvc # graphviz
+  - --with-gvc # graphviz
   - --with-djvu
   - --with-rsvg
   - --without-dps
