@@ -7,7 +7,7 @@ Name:       ImageMagick
 
 # >> macros
 # << macros
-%define mfr_revision 23
+%define mfr_revision 27
 %define maj 7
 %define mfr_version %{maj}.1.1
 %define quantum_depth 16
@@ -43,8 +43,8 @@ BuildRequires:  pkgconfig(libzstd)
 %endif
 
 Summary:    Viewer and Converter for Images
-Version:    7.1.1.23
-Release:    1.2
+Version:    7.1.1.27
+Release:    1.1
 Group:      Applications/Multimedia
 License:    ImageMagick
 URL:        https://imagemagick.org/

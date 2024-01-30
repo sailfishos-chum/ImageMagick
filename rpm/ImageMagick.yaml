@@ -1,8 +1,8 @@
 Name:           ImageMagick
 ### DO NOT FORGET TO BUMP mfr_revision below !!!
 ### Also, the builds script needs this to not be a macro
-Version:        7.1.1.23
-Release:        1.2
+Version:        7.1.1.27
+Release:        1.1
 Summary:        Viewer and Converter for Images
 Group:          Applications/Multimedia
 License:        ImageMagick
@@ -39,7 +39,7 @@ Description: |
 
 Macros:
   #- 'debug_build;0'
-  - 'mfr_revision;23'
+  - 'mfr_revision;27'
   - 'maj;7'
   - 'mfr_version;%{maj}.1.1'
   - 'quantum_depth;16'
