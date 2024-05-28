@@ -72,6 +72,7 @@ BuildRequires:  libjpeg-turbo-devel
 BuildRequires:  librsvg-devel
 BuildRequires:  libtool-ltdl-devel
 BuildRequires:  libwebp-devel
+BuildRequires:  perl-macros
 BuildRequires:  perl-devel
 
 %description
@@ -139,7 +140,7 @@ Requires:   %{name} = %{version}-%{release}
     --without-magick-plus-plus \
     --with-modules \
     --with-perl \
-    --with-perl-options="PREFIX=%{_prefix}" \
+    --with-perl-options="INSTALLDIRS=vendor INSTALLVENDORARCH=%{perl_vendorarch} INSTALLVENDORMAN3DIR=/usr/share/man/man3" \
     --with-djvu \
     --with-rsvg \
     --without-dps \
@@ -232,15 +233,8 @@ make check
 
 %files -n PerlMagick
 %defattr(-,root,root,-)
-%{_libdir}/perl5/perllocal.pod
-%{_libdir}/perl5/Image/Magick.pm
-%{_libdir}/perl5/Image/Magick/Q16HDRI.pm
-%{_libdir}/perl5/auto/Image/Magick/.packlist
-%{_libdir}/perl5/auto/Image/Magick/Magick.bs
-%{_libdir}/perl5/auto/Image/Magick/Magick.so
-%{_libdir}/perl5/auto/Image/Magick/Q16HDRI/Q16HDRI.bs
-%{_libdir}/perl5/auto/Image/Magick/Q16HDRI/Q16HDRI.so
-%{_libdir}/perl5/auto/Image/Magick/Q16HDRI/autosplit.ix
-%{_libdir}/perl5/auto/Image/Magick/autosplit.ix
+%perl_vendorarch/perllocal.pod
+%perl_vendorarch/Image/
+%perl_vendorarch/auto/Image
 # >> files PerlMagick
 # << files PerlMagick

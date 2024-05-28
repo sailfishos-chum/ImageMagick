@@ -90,6 +90,7 @@ PkgBR:
   - librsvg-devel
   - libtool-ltdl-devel
   - libwebp-devel
+  - perl-macros
   - perl-devel
 PkgConfigBR:
   - libcurl
@@ -117,7 +118,7 @@ ConfigOptions:
   - --without-magick-plus-plus # gives linking errors...
   - --with-modules
   - --with-perl
-  - --with-perl-options="PREFIX=%{_prefix}"
+  - --with-perl-options="INSTALLDIRS=vendor INSTALLVENDORARCH=%{perl_vendorarch} INSTALLVENDORMAN3DIR=/usr/share/man/man3"
   # --with-gvc # graphviz
   - --with-djvu
   - --with-rsvg
@@ -189,13 +190,6 @@ SubPackages:
       Summary:    Perl module of %{name}
       Group:      Development/Libraries
       Files:
-        - '%{_libdir}/perl5/perllocal.pod'
-        - '%{_libdir}/perl5/Image/Magick.pm'
-        - '%{_libdir}/perl5/Image/Magick/Q16HDRI.pm'
-        - '%{_libdir}/perl5/auto/Image/Magick/.packlist'
-        - '%{_libdir}/perl5/auto/Image/Magick/Magick.bs'
-        - '%{_libdir}/perl5/auto/Image/Magick/Magick.so'
-        - '%{_libdir}/perl5/auto/Image/Magick/Q16HDRI/Q16HDRI.bs'
-        - '%{_libdir}/perl5/auto/Image/Magick/Q16HDRI/Q16HDRI.so'
-        - '%{_libdir}/perl5/auto/Image/Magick/Q16HDRI/autosplit.ix'
-        - '%{_libdir}/perl5/auto/Image/Magick/autosplit.ix'
+        - '%perl_vendorarch/perllocal.pod'
+        - '%perl_vendorarch/Image/'
+        - '%perl_vendorarch/auto/Image'
