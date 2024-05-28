@@ -118,7 +118,7 @@ ConfigOptions:
   - --without-magick-plus-plus # gives linking errors...
   - --with-modules
   - --with-perl
-  - --with-perl-options="INSTALLDIRS=vendor INSTALLVENDORARCH=%{perl_vendorarch} INSTALLVENDORMAN3DIR=/usr/share/man/man3 NO_PERLLOCAL=1 NO_PACKLIST=1"
+  - --with-perl-options="INSTALLDIRS=vendor INSTALLVENDORARCH=%{perl_vendorarch} INSTALLVENDORMAN3DIR=/usr/share/man/man3"
   # --with-gvc # graphviz
   - --with-djvu
   - --with-rsvg
@@ -190,5 +190,6 @@ SubPackages:
       Summary:    Perl module of %{name}
       Group:      Development/Libraries
       Files:
+        - '%perl_vendorarch/perllocal.pod'
         - '%perl_vendorarch/Image/'
         - '%perl_vendorarch/auto/Image'
