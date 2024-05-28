@@ -140,7 +140,7 @@ Requires:   %{name} = %{version}-%{release}
     --without-magick-plus-plus \
     --with-modules \
     --with-perl \
-    --with-perl-options="INSTALLDIRS=vendor INSTALLVENDORARCH=%{perl_vendorarch} INSTALLVENDORMAN3DIR=/usr/share/man/man3" \
+    --with-perl-options="INSTALLDIRS=vendor INSTALLVENDORARCH=%{perl_vendorarch} INSTALLVENDORMAN3DIR=/usr/share/man/man3 NO_PERLLOCAL=1 NO_PACKLIST=1" \
     --with-djvu \
     --with-rsvg \
     --without-dps \
@@ -233,7 +233,6 @@ make check
 
 %files -n PerlMagick
 %defattr(-,root,root,-)
-%perl_vendorarch/perllocal.pod
 %perl_vendorarch/Image/
 %perl_vendorarch/auto/Image
 # >> files PerlMagick
