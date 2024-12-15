@@ -85,22 +85,22 @@ PkgBR:
   - gcc
   - curl
   - bzip2-devel
-  - harfbuzz-devel
-  - libjpeg-turbo-devel
-  - librsvg-devel
   - libtool-ltdl-devel
-  - libwebp-devel
   - perl-macros
   - perl-devel
 PkgConfigBR:
   - libcurl
   - liblzma
   - libpng
+  - librsvg-2.0
   - libtiff-4
+  - libturbojpeg
+  - libwebp
   - libxml-2.0
   # libzstd # only in 4.4
   - fontconfig
   - freetype2
+  - harfbuzz
   - minizip
   - pango
   - ddjvuapi
