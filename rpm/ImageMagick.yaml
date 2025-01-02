@@ -46,13 +46,19 @@ Macros:
   - 'clibver;10'
   - 'libspec;-%{maj}_Q%{quantum_depth}HDRI'
   - 'source_version;%{mfr_version}-%{mfr_revision}'
+  - 'chum_config_opts;%{nil}'
   #
   # Hack: spectacle deletes macros, this works arount this:
   # libzstd is only in 4.4:
+  # graphviz is only in chum >= 4.1:
   - |
     this_is_a_hack; see_yaml_for_details
     %if 0%{?sailfishos_version} >= 40400
     BuildRequires:  pkgconfig(libzstd)
+    %endif
+    %if 0%{?sailfishos_version} >= 40100
+    BuildRequires:  pkgconfig(libgvc)
+    %define chum_config_opts --with-gvc
     %endif
     %ifarch %{arm} %{arm64} aarch64
     %ifarch %{arm64} aarch64
@@ -90,7 +96,6 @@ PkgBR:
   - perl-devel
 PkgConfigBR:
   - libcurl
-  - libgvc
   - liblzma
   - libpng
   - librsvg-2.0
@@ -120,7 +125,6 @@ ConfigOptions:
   - --with-modules
   - --with-perl
   - --with-perl-options="INSTALLDIRS=vendor INSTALLVENDORARCH=%{perl_vendorarch} INSTALLVENDORMAN3DIR=/usr/share/man/man3"
-  - --with-gvc # graphviz
   - --with-djvu
   - --with-rsvg
   - --without-dps
@@ -137,6 +141,7 @@ ConfigOptions:
   - --without-raw
   - --without-x
   - --with-zstd
+  - '%{chum_config_opts}'
 
 Check: true
 Builder: none

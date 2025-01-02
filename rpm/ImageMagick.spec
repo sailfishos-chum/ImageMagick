@@ -14,9 +14,14 @@ Name:       ImageMagick
 %define clibver 10
 %define libspec -%{maj}_Q%{quantum_depth}HDRI
 %define source_version %{mfr_version}-%{mfr_revision}
+%define chum_config_opts %{nil}
 %define this_is_a_hack see_yaml_for_details
 %if 0%{?sailfishos_version} >= 40400
 BuildRequires:  pkgconfig(libzstd)
+%endif
+%if 0%{?sailfishos_version} >= 40100
+BuildRequires:  pkgconfig(libgvc)
+%define chum_config_opts --with-gvc
 %endif
 %ifarch %{arm} %{arm64} aarch64
 %ifarch %{arm64} aarch64
@@ -53,7 +58,6 @@ Source100:  ImageMagick.yaml
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
 BuildRequires:  pkgconfig(libcurl)
-BuildRequires:  pkgconfig(libgvc)
 BuildRequires:  pkgconfig(liblzma)
 BuildRequires:  pkgconfig(libpng)
 BuildRequires:  pkgconfig(librsvg-2.0)
@@ -142,7 +146,6 @@ Requires:   %{name} = %{version}-%{release}
     --with-modules \
     --with-perl \
     --with-perl-options="INSTALLDIRS=vendor INSTALLVENDORARCH=%{perl_vendorarch} INSTALLVENDORMAN3DIR=/usr/share/man/man3" \
-    --with-gvc \
     --with-djvu \
     --with-rsvg \
     --without-dps \
@@ -157,7 +160,8 @@ Requires:   %{name} = %{version}-%{release}
     --without-openjp2 \
     --without-raw \
     --without-x \
-    --with-zstd
+    --with-zstd \
+    %{chum_config_opts}
 
 
 # >> build post
