@@ -197,6 +197,6 @@ SubPackages:
       Summary:    Perl module of %{name}
       Group:      Development/Libraries
       Files:
-        - '%exclude %_prefix/lib/perl5/perllocal.pod'
+        - '%perl_archlib/perllocal.pod'
         - '%perl_vendorarch/Image/'
         - '%perl_vendorarch/auto/Image'

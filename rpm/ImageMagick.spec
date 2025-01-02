@@ -240,7 +240,7 @@ make check
 
 %files -n PerlMagick
 %defattr(-,root,root,-)
-%exclude %_prefix/lib/perl5/perllocal.pod
+%perl_archlib/perllocal.pod
 %perl_vendorarch/Image/
 %perl_vendorarch/auto/Image
 # >> files PerlMagick
