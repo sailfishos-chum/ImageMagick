@@ -1,7 +1,7 @@
 Name:           ImageMagick
 ### DO NOT FORGET TO BUMP mfr_revision below !!!
 ### Also, the builds script needs this to not be a macro
-Version:        7.1.1.33
+Version:        7.1.1.43
 Release:        1.0
 Summary:        Viewer and Converter for Images
 Group:          Applications/Multimedia
@@ -39,7 +39,7 @@ Description: |
 
 Macros:
   #- 'debug_build;0'
-  - 'mfr_revision;33'
+  - 'mfr_revision;43'
   - 'maj;7'
   - 'mfr_version;%{maj}.1.1'
   - 'quantum_depth;16'
@@ -85,11 +85,7 @@ PkgBR:
   - gcc
   - curl
   - bzip2-devel
-  - harfbuzz-devel
-  - libjpeg-turbo-devel
-  - librsvg-devel
   - libtool-ltdl-devel
-  - libwebp-devel
   - perl-macros
   - perl-devel
 PkgConfigBR:
@@ -97,11 +93,15 @@ PkgConfigBR:
   - libgvc
   - liblzma
   - libpng
+  - librsvg-2.0
   - libtiff-4
+  - libturbojpeg
+  - libwebp
   - libxml-2.0
   # libzstd # only in 4.4
   - fontconfig
   - freetype2
+  - harfbuzz
   - minizip
   - pango
   - ddjvuapi
@@ -155,6 +155,7 @@ Files:
   - '%config %{_sysconfdir}/ImageMagick-%{maj}/type-dejavu.xml'
   - '%config %{_sysconfdir}/ImageMagick-%{maj}/type-ghostscript.xml'
   - '%config %{_sysconfdir}/ImageMagick-%{maj}/type-urw-base35.xml'
+  - '%config %{_sysconfdir}/ImageMagick-%{maj}/type-urw-base35-type1.xml'
   - '%config %{_sysconfdir}/ImageMagick-%{maj}/type-windows.xml'
   - '%config %{_sysconfdir}/ImageMagick-%{maj}/type.xml'
   - '%{_datadir}/ImageMagick-%{maj}/francais.xml'
@@ -191,6 +192,6 @@ SubPackages:
       Summary:    Perl module of %{name}
       Group:      Development/Libraries
       Files:
-        - '%exclude %_prefix/lib/perl5/*/perllocal.pod'
+        - '%exclude %_prefix/lib/perl5/perllocal.pod'
         - '%perl_vendorarch/Image/'
         - '%perl_vendorarch/auto/Image'

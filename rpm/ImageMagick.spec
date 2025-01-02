@@ -7,7 +7,7 @@ Name:       ImageMagick
 
 # >> macros
 # << macros
-%define mfr_revision 33
+%define mfr_revision 43
 %define maj 7
 %define mfr_version %{maj}.1.1
 %define quantum_depth 16
@@ -43,7 +43,7 @@ BuildRequires:  pkgconfig(libzstd)
 %endif
 
 Summary:    Viewer and Converter for Images
-Version:    7.1.1.33
+Version:    7.1.1.43
 Release:    1.0
 Group:      Applications/Multimedia
 License:    ImageMagick
@@ -56,10 +56,14 @@ BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(libgvc)
 BuildRequires:  pkgconfig(liblzma)
 BuildRequires:  pkgconfig(libpng)
+BuildRequires:  pkgconfig(librsvg-2.0)
 BuildRequires:  pkgconfig(libtiff-4)
+BuildRequires:  pkgconfig(libturbojpeg)
+BuildRequires:  pkgconfig(libwebp)
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  pkgconfig(fontconfig)
 BuildRequires:  pkgconfig(freetype2)
+BuildRequires:  pkgconfig(harfbuzz)
 BuildRequires:  pkgconfig(minizip)
 BuildRequires:  pkgconfig(pango)
 BuildRequires:  pkgconfig(ddjvuapi)
@@ -68,11 +72,7 @@ BuildRequires:  automake
 BuildRequires:  gcc
 BuildRequires:  curl
 BuildRequires:  bzip2-devel
-BuildRequires:  harfbuzz-devel
-BuildRequires:  libjpeg-turbo-devel
-BuildRequires:  librsvg-devel
 BuildRequires:  libtool-ltdl-devel
-BuildRequires:  libwebp-devel
 BuildRequires:  perl-macros
 BuildRequires:  perl-devel
 
@@ -203,6 +203,7 @@ make check
 %config %{_sysconfdir}/ImageMagick-%{maj}/type-dejavu.xml
 %config %{_sysconfdir}/ImageMagick-%{maj}/type-ghostscript.xml
 %config %{_sysconfdir}/ImageMagick-%{maj}/type-urw-base35.xml
+%config %{_sysconfdir}/ImageMagick-%{maj}/type-urw-base35-type1.xml
 %config %{_sysconfdir}/ImageMagick-%{maj}/type-windows.xml
 %config %{_sysconfdir}/ImageMagick-%{maj}/type.xml
 %{_datadir}/ImageMagick-%{maj}/francais.xml
@@ -235,7 +236,7 @@ make check
 
 %files -n PerlMagick
 %defattr(-,root,root,-)
-%exclude %_prefix/lib/perl5/*/perllocal.pod
+%exclude %_prefix/lib/perl5/perllocal.pod
 %perl_vendorarch/Image/
 %perl_vendorarch/auto/Image
 # >> files PerlMagick
