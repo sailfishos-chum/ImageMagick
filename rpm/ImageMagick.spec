@@ -201,6 +201,7 @@ make check
 %config %{_sysconfdir}/ImageMagick-%{maj}/type-dejavu.xml
 %config %{_sysconfdir}/ImageMagick-%{maj}/type-ghostscript.xml
 %config %{_sysconfdir}/ImageMagick-%{maj}/type-urw-base35.xml
+%config %{_sysconfdir}/ImageMagick-%{maj}/type-urw-base35-type1.xml
 %config %{_sysconfdir}/ImageMagick-%{maj}/type-windows.xml
 %config %{_sysconfdir}/ImageMagick-%{maj}/type.xml
 %{_datadir}/ImageMagick-%{maj}/francais.xml
@@ -233,7 +234,7 @@ make check
 
 %files -n PerlMagick
 %defattr(-,root,root,-)
-%exclude %_prefix/lib/perl5/*/perllocal.pod
+%exclude %_prefix/lib/perl5/perllocal.pod
 %perl_vendorarch/Image/
 %perl_vendorarch/auto/Image
 # >> files PerlMagick
