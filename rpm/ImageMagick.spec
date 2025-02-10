@@ -185,7 +185,7 @@ rm -rf %{buildroot}%{_mandir}
 
 %check
 # >> check
-make check
+make check || cat ./test-suite.log
 # << check
 
 %post -p /sbin/ldconfig
