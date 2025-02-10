@@ -143,7 +143,8 @@ ConfigOptions:
   - --with-zstd
   - '%{chum_config_opts}'
 
-Check: true
+# Lets skip the check phase, it can take ~20 minutes when building on OBS:
+#Check: true
 Builder: none
 SetupOptions: '-q -n %{name}-%{version}/upstream'
 Files:

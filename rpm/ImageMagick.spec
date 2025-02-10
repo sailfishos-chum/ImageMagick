@@ -183,11 +183,6 @@ make install DESTDIR=$RPM_BUILD_ROOT
 rm -rf %{buildroot}%{_mandir}
 # << install post
 
-%check
-# >> check
-make check || cat ./test-suite.log
-# << check
-
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
