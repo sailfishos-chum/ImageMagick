@@ -182,8 +182,9 @@ SubPackages:
         - '%{_libdir}/libMagickCore*.so'
         - '%{_libdir}/libMagickWand*.so'
         # don't remove these!
-        - '%{_libdir}/libMagickCore*.la'
-        - '%{_libdir}/libMagickWand*.la'
+        # starting with SFOS 5.0, OBS weirdly only produces them for x86:
+        - 'ix86:%{_libdir}/libMagickCore*.la'
+        - 'ix86:%{_libdir}/libMagickWand*.la'
         - '%dir %{_includedir}/ImageMagick*'
         - '%{_includedir}/ImageMagick*/MagickCore'
         - '%{_includedir}/ImageMagick*/MagickWand'
