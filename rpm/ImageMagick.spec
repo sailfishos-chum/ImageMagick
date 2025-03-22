@@ -181,6 +181,9 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 # >> install post
 rm -rf %{buildroot}%{_mandir}
+
+# fix .la detritus
+find %{buildroot}%{_libdir} -type f -name "*.la" | xargs rm
 # << install post
 
 %post -p /sbin/ldconfig
@@ -220,12 +223,6 @@ rm -rf %{buildroot}%{_mandir}
 %defattr(-,root,root,-)
 %{_libdir}/libMagickCore*.so
 %{_libdir}/libMagickWand*.so
-%ifarch %{ix86}
-%{_libdir}/libMagickCore*.la
-%endif
-%ifarch %{ix86}
-%{_libdir}/libMagickWand*.la
-%endif
 %dir %{_includedir}/ImageMagick*
 %{_includedir}/ImageMagick*/MagickCore
 %{_includedir}/ImageMagick*/MagickWand
