@@ -47,6 +47,9 @@ Macros:
   - 'libspec;-%{maj}_Q%{quantum_depth}HDRI'
   - 'source_version;%{mfr_version}-%{mfr_revision}'
   - 'chum_config_opts;%{nil}'
+  # ImageMagick REALLY REALLY needs the .la files packaged.
+  # https://src.fedoraproject.org/rpms/ImageMagick/pull-request/5#commit_list
+  - '__brp_remove_la_files;%nil'
   #
   # Hack: spectacle deletes macros, this works arount this:
   # libzstd is only in 4.4:
@@ -181,7 +184,7 @@ SubPackages:
       Files:
         - '%{_libdir}/libMagickCore*.so'
         - '%{_libdir}/libMagickWand*.so'
-        # don't remove these!
+        # don't remove these! No, really.
         - '%{_libdir}/libMagickCore*.la'
         - '%{_libdir}/libMagickWand*.la'
         - '%dir %{_includedir}/ImageMagick*'

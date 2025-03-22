@@ -15,6 +15,7 @@ Name:       ImageMagick
 %define libspec -%{maj}_Q%{quantum_depth}HDRI
 %define source_version %{mfr_version}-%{mfr_revision}
 %define chum_config_opts %{nil}
+%define __brp_remove_la_files %nil
 %define this_is_a_hack see_yaml_for_details
 %if 0%{?sailfishos_version} >= 40400
 BuildRequires:  pkgconfig(libzstd)
