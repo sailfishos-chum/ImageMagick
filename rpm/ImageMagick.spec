@@ -7,7 +7,7 @@ Name:       ImageMagick
 
 # >> macros
 # << macros
-%define mfr_revision 3
+%define mfr_revision 13
 %define maj 7
 %define mfr_version %{maj}.1.2
 %define quantum_depth 16
@@ -49,7 +49,7 @@ BuildRequires:  pkgconfig(libgvc)
 %endif
 
 Summary:    Viewer and Converter for Images
-Version:    7.1.2.3
+Version:    7.1.2.13
 Release:    1.0
 Group:      Applications/Multimedia
 License:    ImageMagick
