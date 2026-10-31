@@ -1,10 +1,9 @@
 Name:           ImageMagick
 ### DO NOT FORGET TO BUMP mfr_revision below !!!
 ### Also, the builds script needs this to not be a macro
-Version:        7.1.2.31
+Version:        7.1.2.34
 Release:        1.0
 Summary:        Viewer and Converter for Images
-Group:          Applications/Multimedia
 License:        ImageMagick
 URL:            https://imagemagick.org/
 Sources:
@@ -39,7 +38,7 @@ Description: |
 
 Macros:
   #- 'debug_build;0'
-  - 'mfr_revision;31'
+  - 'mfr_revision;34'
   - 'maj;7'
   - 'mfr_version;%{maj}.1.2'
   - 'quantum_depth;16'
@@ -180,7 +179,6 @@ Files:
 SubPackages:
     - Name:  devel
       Summary:    Development files for %{name}
-      Group:      Development/Libraries
       Files:
         - '%{_libdir}/libMagickCore*.so'
         - '%{_libdir}/libMagickWand*.so'
@@ -199,7 +197,6 @@ SubPackages:
     - Name:  PerlMagick
       AsWholeName: true
       Summary:    Perl module of %{name}
-      Group:      Development/Libraries
       Files:
         - '%perl_archlib/perllocal.pod'
         - '%perl_vendorarch/Image/'
